@@ -95,10 +95,6 @@ button{
   display:block;
 }
 
-.reversed{
-  transform:rotate(180deg);
-}
-
 .card-name{
   margin-top:10px;
   font-size:17px;
@@ -110,13 +106,28 @@ button{
   background:white;
   border-radius:24px;
   padding:18px 16px;
-  margin:18px auto 24px;
+  margin:18px auto 16px;
   max-width:480px;
   color:#df5d97;
   font-size:17px;
   font-weight:bold;
   line-height:1.9;
   box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  white-space:pre-line;
+}
+
+.lucky-box{
+  background:#fffdf4;
+  border-radius:22px;
+  padding:16px 14px;
+  margin:0 auto 24px;
+  max-width:480px;
+  color:#8a6235;
+  font-size:16px;
+  font-weight:bold;
+  line-height:1.8;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+  border:2px dashed #f3d27a;
   white-space:pre-line;
 }
 
@@ -153,11 +164,11 @@ button{
 
   <h1>🌈 チャッピー＆サリーの<br>今日の1枚</h1>
 
- <img
-  class="hero-img"
-  src="https://chappy-sally.github.io/tarot-reading/Images/cs_hyoushi_tarot.png?v=1"
-  alt="チャッピー＆サリーの今日の1枚"
->
+  <img
+    class="hero-img"
+    src="https://chappy-sally.github.io/tarot-reading/Images/cs_hyoushi_tarot.png?v=1"
+    alt="チャッピー＆サリーの今日の1枚"
+  >
 
   <p class="desc">
     今日のあなたに届く<br>
@@ -181,11 +192,13 @@ button{
   <h1>🌈 今日の1枚</h1>
 
   <div class="card">
-    <img id="cardImage">
+    <img id="cardImage" alt="今日のカード">
     <div id="cardName" class="card-name"></div>
   </div>
 
   <div id="messageBox" class="message-box"></div>
+
+  <div id="luckyBox" class="lucky-box"></div>
 
   <button onclick="drawCard()">
     もう一度引く🌈
@@ -236,8 +249,29 @@ const cards = [
   ["21_The_World.png","世界","ここまでよく来たね🌈\nひとつの流れが整って、次へ進めそうだよ😊"]
 ];
 
+const luckyHints = [
+  "🎨 今日のラッキーカラー\nピンク：やさしい気持ちを思い出せそう💗",
+  "🎨 今日のラッキーカラー\n水色：心を軽くしてくれそう🩵",
+  "🎨 今日のラッキーカラー\nゴールド：小さな豊かさに気づけそう✨",
+  "🎨 今日のラッキーカラー\n白：気持ちをリセットできそう🤍",
+  "🎨 今日のラッキーカラー\nラベンダー：深呼吸したくなる色だよ🌿",
+
+  "🍰 今日のラッキーフード\n甘いもの：ほっとする時間をくれそう😊",
+  "🍓 今日のラッキーフード\nいちご：かわいい気分を思い出せそう🍓",
+  "🍵 今日のラッキーフード\nあたたかい飲み物：心がゆるみそう☕",
+  "🍙 今日のラッキーフード\nおにぎり：安心感をくれそう🍙",
+  "🍊 今日のラッキーフード\n柑橘系：気分を軽くしてくれそう🍊",
+
+  "👜 今日のラッキーアイテム\nお気に入りのハンカチ：安心のお守りになりそう🌿",
+  "💎 今日のラッキーアイテム\nキラキラしたもの：気分を上げてくれそう✨",
+  "📱 今日のラッキーアイテム\nスマホ：うれしい情報に出会えるかも😊",
+  "🗝️ 今日のラッキーアイテム\n鍵：新しい流れを開くサインかも🗝️",
+  "🌸 今日のラッキーアイテム\nお花モチーフ：やさしく整えてくれそう🌸"
+];
+
 function drawCard(){
   const card = cards[Math.floor(Math.random() * cards.length)];
+  const lucky = luckyHints[Math.floor(Math.random() * luckyHints.length)];
 
   document.getElementById("home").classList.add("hidden");
   document.getElementById("result").classList.remove("hidden");
@@ -245,6 +279,7 @@ function drawCard(){
   document.getElementById("cardImage").src = baseUrl + card[0];
   document.getElementById("cardName").textContent = card[1];
   document.getElementById("messageBox").textContent = card[2];
+  document.getElementById("luckyBox").textContent = "✨今日のプチヒント✨\n" + lucky;
 
   window.scrollTo(0,0);
 }
