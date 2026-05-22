@@ -152,6 +152,28 @@ button{
   button{
     font-size:16px;
   }
+
+  .menuBackBtn{
+  width:80%;
+  max-width:320px;
+  margin:18px auto 0;
+  display:block;
+  border:none;
+  border-radius:30px;
+  padding:14px 12px;
+  font-size:16px;
+  font-weight:bold;
+  color:#5c3a1e;
+
+  background:linear-gradient(
+    90deg,
+    #ffd1e6,
+    #ffe8b5
+  );
+
+  box-shadow:0 5px 12px rgba(0,0,0,0.10);
+  }
+  
 }
 </style>
 </head>
@@ -177,6 +199,11 @@ button{
 
   <button onclick="drawCard()">
     今日の1枚を引く🌈
+  </button>
+
+  <button class="menuBackBtn"
+onclick="location.href='https://chappy-sally.github.io/chappysally-menu/'">
+🏠 しあわせメニューに戻る
   </button>
 
   <p class="small-note">
