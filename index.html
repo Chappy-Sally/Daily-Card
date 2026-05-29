@@ -139,21 +139,32 @@ button{
   max-width:480px;
 }
 
-@media(max-width:480px){
-  h1{
-    font-size:25px;
-  }
+.promo-box{
+  background:#fffdf4;
+  border:2px solid #f3d27a;
+  border-radius:24px;
+  padding:18px 14px;
+  margin:24px auto 10px;
+  max-width:500px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
+}
 
-  .desc,
-  .small-note{
-    font-size:15px;
-  }
+.promo-title{
+  color:#6946d8;
+  font-size:18px;
+  font-weight:bold;
+  line-height:1.6;
+  margin-bottom:10px;
+}
 
-  button{
-    font-size:16px;
-  }
+.promo-text{
+  color:#7b5b39;
+  font-size:15px;
+  line-height:1.8;
+  margin-bottom:14px;
+}
 
-  .menuBackBtn{
+.menuBackBtn{
   width:80%;
   max-width:320px;
   margin:18px auto 0;
@@ -164,16 +175,24 @@ button{
   font-size:16px;
   font-weight:bold;
   color:#5c3a1e;
-
-  background:linear-gradient(
-    90deg,
-    #ffd1e6,
-    #ffe8b5
-  );
-
+  background:linear-gradient(90deg,#ffd1e6,#ffe8b5);
   box-shadow:0 5px 12px rgba(0,0,0,0.10);
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:25px;
   }
-  
+
+  .desc,
+  .small-note,
+  .promo-text{
+    font-size:15px;
+  }
+
+  button{
+    font-size:16px;
+  }
 }
 </style>
 </head>
@@ -200,6 +219,24 @@ button{
   <button onclick="drawCard()">
     今日の1枚を引く🌈
   </button>
+
+  <div class="promo-box">
+    <div class="promo-title">
+      もっと深くカードを引きたい方へ✨
+    </div>
+
+    <div class="promo-text">
+      チャッピー＆サリーの<br>
+      「私に戻るタロット」は、<br>
+      1枚引き・3枚引き・5枚引き・7枚引きに加えて、<br>
+      A/Bセレクトや相性占いもできる<br>
+      タロットリーディングアプリです😊
+    </div>
+
+    <button class="link-btn" onclick="location.href='https://ChappySally.base.shop/items/144938615'">
+      私に戻るタロットを見る✨
+    </button>
+  </div>
 
   <button class="menuBackBtn"
 onclick="location.href='https://chappy-sally.github.io/chappysally-menu/'">
@@ -231,18 +268,29 @@ onclick="location.href='https://chappy-sally.github.io/chappysally-menu/'">
     もう一度引く🌈
   </button>
 
-  <button class="link-btn" onclick="location.href='https://ChappySally.base.shop/items/144938615'">
-    タロットリーディングアプリ✨
-  </button>
+  <div class="promo-box">
+    <div class="promo-title">
+      もっと詳しく受け取りたい時は✨
+    </div>
+
+    <div class="promo-text">
+      「私に戻るタロット」では、<br>
+      今日の1枚だけでなく、<br>
+      3枚引き・5枚引き・7枚引き、<br>
+      A/Bセレクト、相性占いも楽しめます😊<br><br>
+      AIに結果を送って、<br>
+      今の自分に必要なメッセージを<br>
+      やさしく受け取れるアプリです🌈
+    </div>
+
+    <button class="link-btn" onclick="location.href='https://ChappySally.base.shop/items/144938615'">
+      タロットリーディングアプリへ✨
+    </button>
+  </div>
 
   <button class="back" onclick="backHome()">
     戻る
   </button>
-
-  <p class="small-note">
-    3枚・5枚・7枚・A/Bセレクトは<br>
-    タロットリーディングアプリで楽しめます😊
-  </p>
 
 </div>
 
@@ -282,13 +330,11 @@ const luckyHints = [
   "🎨 今日のラッキーカラー\nゴールド：小さな豊かさに気づけそう✨",
   "🎨 今日のラッキーカラー\n白：気持ちをリセットできそう🤍",
   "🎨 今日のラッキーカラー\nラベンダー：深呼吸したくなる色だよ🌿",
-
   "🍰 今日のラッキーフード\n甘いもの：ほっとする時間をくれそう😊",
   "🍓 今日のラッキーフード\nいちご：かわいい気分を思い出せそう🍓",
   "🍵 今日のラッキーフード\nあたたかい飲み物：心がゆるみそう☕",
   "🍙 今日のラッキーフード\nおにぎり：安心感をくれそう🍙",
   "🍊 今日のラッキーフード\n柑橘系：気分を軽くしてくれそう🍊",
-
   "👜 今日のラッキーアイテム\nお気に入りのハンカチ：安心のお守りになりそう🌿",
   "💎 今日のラッキーアイテム\nキラキラしたもの：気分を上げてくれそう✨",
   "📱 今日のラッキーアイテム\nスマホ：うれしい情報に出会えるかも😊",
